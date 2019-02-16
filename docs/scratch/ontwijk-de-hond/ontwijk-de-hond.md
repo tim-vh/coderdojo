@@ -1,5 +1,12 @@
 # Ontwijk de hond handleiding 
 
+## Inhoud
+- [Basisspel](#basisspel)
+- [Uitbreidingen](#uitbreidingen)
+  * [Levens](#levens)
+  * [Laat de kat sprinten](#laat-de-kat-sprinten)
+  * [Muren toevoegen](#muren-toevoegen)
+  
 ## Basisspel
 
 Voeg de volgende gebeurtenis toe: 

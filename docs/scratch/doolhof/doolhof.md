@@ -4,6 +4,8 @@
 - [Doolhof handleiding](#doolhof-handleiding)
   - [Inhoud](#inhoud)
   - [Basisspel](#basisspel)
+  - [Uitbreidingen](#uitbreidingen)
+    - [Monster vijand](#monster-vijand)
 
 ## Basisspel
 
@@ -62,4 +64,17 @@ Kies voor een vlag en plaats deze aan het einde van het doolhof. Nu kunnen we co
 
 ![Image](afbeeldingen/zeg-gewonnen.png)
 
-De eerste versie van ons spel is nu af! Maar je kan het spel natuurlijk nog verder uitbreiden. 
+De eerste versie van ons spel is nu af! Maar je kan het spel natuurlijk nog verder uitbreiden. Bijvoorbeeld met de onderstaande onderdelen. Maar je kan natuurlijk ook zelf iets verzinnen. 
+
+- Monster vijand 
+- Spook vijand 
+- Deur en sleutel 
+- .....
+
+## Uitbreidingen
+
+In de volgende hoofdstukken staat uitgelegd hoe je deze uitbreidingen zou kunnen maken.
+
+### Monster vijand
+ 
+ 

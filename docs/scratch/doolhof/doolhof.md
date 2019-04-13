@@ -32,6 +32,8 @@ Nu beweegt de kat alleen als pijltje naar rechts wordt ingedrukt. Nu willen we e
  
 Nu is er voor elke richting een toets toegevoegd. Wanneer x veranderd gaat de kat naar links of naar rechts. En wanneer y veranderd gaat de kat naar boven of naar beneden. Door een minteken ('-') voor het getal te zetten zorg je ervoor dat de kat bijvoorbeeld naar links gaat in plaats van naar rechts. 
 
+> Uitdaging: Zorg ervoor dat de kat sneller kan lopen.
+
 We gaan de code van de kat aanpassen zodat wanneer de kat iets zwarts raakt hij niet beweegt. Hierdoor kan de kat niet door zwarte dingen heen. Eerst gaan we onze achtergrond aanpassen door hier een zwarte muur op te tekenen. Ga eerst naar 'speelveld': 
 
 ![Image](afbeeldingen/ga-naar-speelveld.png)
@@ -56,6 +58,8 @@ Nu kan de kat niet meer door de zwarte lijnen. Je kan de achtergrond nu verder a
 
 ![Image](afbeeldingen/doolhof.png)
 
+> Uitdaging: Zorg ervoor dat de kat een geluid maakt als hij een muur raakt.
+
 Als laatste stap gaan we een eindpunt toevoegen aan het doolhof. Wanneer je hier komt heb je het spel gewonnen. Dit gaan we doen door een nieuwe sprite toe te voegen. 
 
 ![Image](afbeeldingen/sprite-toevoegen.png)
@@ -63,6 +67,8 @@ Als laatste stap gaan we een eindpunt toevoegen aan het doolhof. Wanneer je hier
 Kies voor een vlag en plaats deze aan het einde van het doolhof. Nu kunnen we code toevoegen zodat we het spel kunnen winnen. Als de kat de vlag raakt willen we dat hij zegt "gewonnen!". Voeg hiervoor de volgende code toe aan de kat:
 
 ![Image](afbeeldingen/zeg-gewonnen.png)
+
+> Uitdaging: Maak een knop waarmee het spel opnieuw begint.
 
 De eerste versie van ons spel is nu af! Maar je kan het spel natuurlijk nog verder uitbreiden. Bijvoorbeeld met de onderstaande onderdelen. Maar je kan natuurlijk ook zelf iets verzinnen. 
 
@@ -77,4 +83,24 @@ In de volgende hoofdstukken staat uitgelegd hoe je deze uitbreidingen zou kunnen
 
 ### Monster vijand
  
- 
+Voeg als eerste een nieuwe sprite toe, bijvoorbeeld een monster. Het monster gaan we door het doolhof laten bewegen. Voeg eerst het volgede blok toe:
+
+![Image](afbeeldingen/gebeurtenis-vlag.png)
+
+Om het monster te laten bewegen gaan we het volgende blok gebruiken:
+
+![Image](afbeeldingen/schuif-naar-x-y.png)
+
+Zet je monster op de plek waar je hem naartoe wil laten bewegen. Sleep nu een nieuw 'schuif'-blok naar de code van het monster en maak het vast een het blok met de vlag.
+
+Zet nu je monster weer naar de beginplek en sleep een ander 'schuif'-blok naar de code van het monster een maak deze vast aan het vorige blok. Zet het aantal seconden op 3.
+
+De code ziet er nu ongeveer zo uit:
+
+![Image](afbeeldingen/schuif-tussen-twee-punten.png)
+
+Als het spel start beweeg het monster op en neer tussen twee punten. Hij doet dit nu een keer. Om hem de hele tijd te laten bewegen kunnen we de code in een herhaal blok zetten.
+
+![Image](afbeeldingen/schuif-tussen-twee-punten-herhaal.png)
+
+> Uitdaging: Laat het monster tussen 3 of meer punten bewegen.

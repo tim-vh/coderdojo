@@ -8,6 +8,8 @@
     - [Levens](#levens)
     - [Laat de kat sprinten](#laat-de-kat-sprinten)
     - [Muren toevoegen](#muren-toevoegen)
+    - [Meer honden!](#meer-honden)
+      - [Verbetering met eigen blok](#verbetering-met-eigen-blok)
   
 ## Basisspel
 
@@ -28,11 +30,19 @@ Nu blijft de kat bewegen totdat de rand van het spel wordt geraakt. De volgende 
 ![Image](afbeeldingen/als-leeg.png)
 ![Image](afbeeldingen/als-toets-rechts.png)
 
-Nu beweegt de kat alleen als pijltje naar rechts wordt ingedrukt. Nu willen we ervoor zorgen dat de kat ook de andere kanten op kan bewegen:
+Nu beweegt de kat alleen als pijltje naar rechts wordt ingedrukt. 
+
+> Uitdaging: Zorg ervoor dat de kat sneller beweegt
+
+> Uitdaging: Laat de kat naar links bewegen in plaats van naar rechts
+
+Nu willen we ervoor zorgen dat de kat ook de andere kanten op kan bewegen:
 
 ![Image](afbeeldingen/beweeg-met-pijtjes-toetsen.png)
  
 Nu is er voor elke richting een toets toegevoegd. Wanneer x veranderd gaat de kat naar links of naar rechts. En wanneer y veranderd gaat de kat naar boven of naar beneden. Door een minteken ('-') voor het getal te zetten zorg je ervoor dat de kat bijvoorbeeld naar links gaat in plaats van naar rechts. 
+
+> Uitdaging: Geeft de kat een ander uiterlijk als hij omhoog beweegt. Dit kun je doen met het 'Verander uiterlijk naar' blok. ![Image](afbeeldingen/verander-uiterlijk-naar.png)
 
 De volgende stap is dat we een hond toevoegen. Voeg hiervoor een nieuwe sprite toe: 
 
@@ -50,11 +60,14 @@ Om ervoor te zorgen dat de hond naar een andere plek in het spel gaat als de kat
 
 ![Image](afbeeldingen/ga-naar-willekeurige-plek.png)
 
+> Uitdaging: Start een geluid als de hond de kat raakt.
+
 De eerste versie van ons spel is nu af! Maar je kan het spel natuurlijk nog verder uitbreiden. Bijvoorbeeld met de onderstaande onderdelen. Maar je kan natuurlijk ook zelf iets verzinnen. 
 
 - Levens 
 - Laat de kat sprinten 
 - Muren toevoegen 
+- Meer honden!
 - .....
 
 ## Uitbreidingen
@@ -118,6 +131,10 @@ De kat heeft nu de snelheid '10' wanneer je op spatiebalk drukt. Nu gaan we er n
 
 De snelheid wordt nu na 3 seconden weer normaal. 
 
+> Uitdaging: Verander de code zodat de kat nadat hij sneller ging eerst 1 seconde langzamer gaat.
+
+> Uitdaging: Zorg dat de hond langzamer gaat als de kat sneller gaat. 
+
 ### Muren toevoegen 
 
 We gaan de code van de kat aanpassen zodat wanneer de kat iets zwarts raakt hij niet beweegt. Hierdoor kan de kat niet door zwarte dingen heen. Eerst gaan we onze achtergrond aanpassen door hier een zwarte muur op te tekenen. Ga eerst naar 'speelveld': 
@@ -141,3 +158,55 @@ Zorg dat de kleur in het blok 'raak ik kleur?' zwart wordt. Dit kan door helderh
 ![Image](afbeeldingen/niet-door-lijn-voor-alle-richtingen.png)
 
 Nu kan de kat niet meer door de zwarte lijnen. Je kan de achtergrond nu eventueel verder aanpassen door meer lijnen toe te voegen.  
+
+### Meer honden!
+
+We gaan het spel aanpassen zodat de kat wordt achtervolgd door meerdere honden. Dit gaan we doen door een kloon toe te voegen van de hond.
+
+Ga naar de code van de hond en voeg de volgende code toe:
+
+![Image](afbeeldingen/maak-kloon-na-5-seconden.png)
+
+Deze code zorgt ervoor dat er na 5 seconden een kloon (een soort kopie) van de hond wordt gemaakt. De kloon van de hond beweegt nu nog niet. We moeten er nog voor zorgen dat er code gestart wordt als er een kloon wordt gemaakt. Dit kan met het volgende blok:
+
+![Image](afbeeldingen/wanneer-ik-als-kloon-start.png)
+
+De volgende stap is dat de kloon op een willekeurige plek in het spel begint. Dit kan door het volgende blok toe te voegen:
+
+![Image](afbeeldingen/start-kloon-op-willekeurige-positie.png)
+
+Nu kunnen we de kloon van de hond laten bewegen net als de normale hond. We kunnen hiervoor de herhaal kopiëren en toevoegen onder het blok 'Wanneer ik als kloon start'. De code ziet er dan zo uit:
+
+![Image](afbeeldingen/laat-kloon-bewegen.png)
+
+Nu renner er twee honden achter de kat aan!
+
+> Uitdaging: Verander de code zodat er elke 5 seconden een nieuwe kloon wordt gemaakt.
+
+> Uitdaging: Geef elke kloon een eigen uiterlijk, bijvoorbeeld met een kleur effect.
+
+#### Verbetering met eigen blok
+
+We kunnen de code voor de hond en de kloon nog wat beter maken. Nu heeft de code twee keer dezelfde herhaal code. Als we nu iets willen aanpassen aan de herhaal moeten we dat doen op twee plekken. Als we de hond bijvoorbeeld sneller willen laten bewegen moeten we dit op twee plekken aanpassen:
+
+![Image](afbeeldingen/dubbele-code-hond.png)
+
+Dit kunnen we beter maken door een eigen blok toe te voegen. Dit kan op de volgende manier. Ga naar 'Mijn blokken' en klik op 'Maak een blok':
+
+![Image](afbeeldingen/eigen-blok-toevoegen.png)
+
+Geef het blok een naam, bijvoorbeeld 'Vang de kat':
+
+![Image](afbeeldingen/maak-vang-de-kat.png)
+
+Er is nu een eigen blok toegevoegd waar we onze code aan toe kunnen voegen:
+
+![Image](afbeeldingen/vang-de-kat-blok.png)
+
+Aan dit blok gaan we de herhaal code toevoegen die er nu staat voor de hond en de kloon:
+
+![Image](afbeeldingen/vang-de-kat-blok-met-code.png)
+
+Ons eigen blok is nu af en nu kunnen we deze gebruiken in de code voor de hond. We gaan de andere herhaal blokken weghalen en deze vervangen voor het blok dat we net gemaakt hebben. Het nieuwe blok kun je vinden bij 'mijn blokken'. Wanneer je de code vervangen hebt ziet de code er op deze manier uit:
+
+![Image](afbeeldingen/vang-de-kat-in-code-hond.png)

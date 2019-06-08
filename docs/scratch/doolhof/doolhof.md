@@ -80,6 +80,8 @@ De eerste versie van ons spel is nu af! Maar je kan het spel natuurlijk nog verd
 ## Uitbreidingen
 
 In de volgende hoofdstukken staat uitgelegd hoe je deze uitbreidingen zou kunnen maken.
+ 
+<div style="page-break-after: always;"></div>
 
 ### Monster vijand
  

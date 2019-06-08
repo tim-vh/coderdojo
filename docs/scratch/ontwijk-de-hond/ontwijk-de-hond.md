@@ -72,7 +72,9 @@ De eerste versie van ons spel is nu af! Maar je kan het spel natuurlijk nog verd
 
 ## Uitbreidingen
 
-In de volgende hoofdstukken staat uitgelegd hoe je deze uitbreidingen zou kunnen maken. 
+In de volgende hoofdstukken staat uitgelegd hoe je deze uitbreidingen zou kunnen maken.
+
+<div style="page-break-after: always;"></div>
 
 ### Levens 
 
@@ -97,8 +99,9 @@ Wanneer de hond de kat raakt wordt er nu een leven afgehaald. We gaan er nu nog 
 ![Image](afbeeldingen/stop-spel.png)
 
 Door dit blok toe te voegen wordt er gekeken of het aantal levens nul is. Als dat zo is wordt alle code gestopt. 
-
  
+<div style="page-break-after: always;"></div>
+
 ### Laat de kat sprinten 
 
 Ga naar Data en kies voor 'Maak een variabele'. 
@@ -134,6 +137,8 @@ De snelheid wordt nu na 3 seconden weer normaal.
 > Uitdaging: Verander de code zodat de kat nadat hij sneller ging eerst 1 seconde langzamer gaat.
 
 > Uitdaging: Zorg dat de hond langzamer gaat als de kat sneller gaat. 
+ 
+<div style="page-break-after: always;"></div>
 
 ### Muren toevoegen 
 
@@ -158,6 +163,8 @@ Zorg dat de kleur in het blok 'raak ik kleur?' zwart wordt. Dit kan door helderh
 ![Image](afbeeldingen/niet-door-lijn-voor-alle-richtingen.png)
 
 Nu kan de kat niet meer door de zwarte lijnen. Je kan de achtergrond nu eventueel verder aanpassen door meer lijnen toe te voegen.  
+ 
+<div style="page-break-after: always;"></div>
 
 ### Meer honden!
 

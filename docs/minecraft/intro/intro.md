@@ -23,7 +23,7 @@ Doe de tutorial 'chicken rain'
 
 ### Planten en oogsten
 
-Voorbeeld: https://makecode.com/_4LP94wf0VYMp
+Voorbeeld: https://makecode.com/_PYa5ymFVdW1U
 
 
 Tijd sneller laten gaan: /gamerule randomTickSpeed 2000

@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Raad een getal</title>
+    <style>
+        h1 {
+            color: blue;
+        }
+    </style>
+    <script>
+        var getal = Math.floor(Math.random() * 10); // willekeurig getal van 0 t/m 9 
+
+        while (antwoord != getal) {
+            var antwoord = prompt("Raad een getal");
+
+            if (antwoord == getal) {
+                alert("Goed geraden");
+            } else {
+                alert("Dat was helaas niet goed");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Raad een getal</h1>
+</body>
+
+</html>

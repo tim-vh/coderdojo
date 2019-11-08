@@ -52,8 +52,8 @@ Goed gedaan! De eerste versie van ons spel is nu af.
 
 > Uitdaging: Speel een geluid af als het getal goed wordt geraden
 
-> Uitdaging: Maak het spel moeilijker door ervoor te zorgen dat de variabele getal hoger dan 10 kan worden.
-
-> Uitdaging: Zorg ervoor dat je maximaal 5 keer kan raden. Tip: Maak een nieuwe variabele om het aantal pogingen bij te houden.
+> Uitdaging: Maak het spel moeilijker door ervoor te zorgen dat de variabele 'getal' hoger dan 10 kan worden.
 
 > Uitdaging: Als je het fout hebt zeg dan of het getal hoger of lager is. Tip: Gebruik het volgende blok om te kijken of een getal hoger is.![Image](afbeeldingen/hoger-dan.png)
+
+> Uitdaging: Zorg ervoor dat je maximaal 5 keer kan raden. Tip: Maak een nieuwe variabele om het aantal pogingen bij te houden.

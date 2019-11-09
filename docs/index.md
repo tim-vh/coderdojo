@@ -1,14 +1,15 @@
 ## Scratch
 
 - Ontwijk de hond - [Handleiding](scratch/ontwijk-de-hond/ontwijk-de-hond.md) - [Spel](https://scratch.mit.edu/projects/217821507/)
+- Raad een getal - [Handleiding](scratch/raad-een-getal/raad-een-getal.md) - [Spel](https://scratch.mit.edu/projects/342620915/)
 - Snake - [Spel](https://scratch.mit.edu/projects/292571474/) - [Spel met uitbreidingen](https://scratch.mit.edu/projects/292583001/)
 - Doolhof - [Handleiding](scratch/doolhof/doolhof.md) - [Spel](https://scratch.mit.edu/projects/238803243/) - [Spel met uitbreidingen](https://scratch.mit.edu/projects/300601916/)
 - Multi level game [Voorbeeld](https://scratch.mit.edu/projects/245151514/)
-- [Flappy Bird](https://drive.google.com/open?id=0BzzxROHp6JqbbGhLOXZqaXpQVG8)
-- [Pong](https://drive.google.com/open?id=0BzzxROHp6JqbakxDd2xfNFM5Wnc)
-- [Attack of the Clones](https://drive.google.com/open?id=0BzzxROHp6JqbSnJVSGN0bDhNbmc)
-- [Appeltjes vangen](https://drive.google.com/open?id=0BzzxROHp6JqbMFo3cWRjb2RIa3c)
-- [Snake](https://drive.google.com/file/d/0BzzxROHp6JqbTGZ4VGJVTFVVMVU/view?usp=sharing)
+
+## Minecraft
+
+- Toren en trap - [Handleiding](minecraft/toren-en-trap/toren-en-trap.md)
+- Parkour - [Handleiding](minecraft/parkour/parkour.md)
 
 ## Algemeen
 - [Raspberrypi / coderdojo projecten](https://projects.raspberrypi.org/nl-NL/)

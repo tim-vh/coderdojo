@@ -135,3 +135,146 @@ Nu hebben we voor paragrafen de grote van de letters 50 pixels gemaakt.
 ### Andere CSS-eigenschappen
 
 Op de volgende website kun je een Lijst van alle CSS-eigenschappen vinden: https://www.w3schools.com/cssref/
+
+## Javascript
+
+Met javascript kun je een webpagina programmeren. Om javascript toe te voegen gaan we eerst een `<script>` tag aan de HTML toevoegen. In deze tag komt de javascript te staan. Onze HTML ziet er dan zo uit:
+
+```html
+<!DOCTYPE html>
+<html>
+    <script>
+            
+    </script>
+    <body>
+    </body>
+</html>
+```
+
+### Raad een getal
+
+Met javascript gaan we een klein spelletje maken dat je op de webpagina kan spelen. In het spel is het de bedoeling dat de speler een getal gaat raden.
+
+De eerste stap is dat we een getal gaan bedenken en dat we deze opslaan. Dit gaan we doen in een variable. Dit gaat op de volgende manier:
+
+```html
+<script>
+    var getal = 4;
+</script>
+```
+
+We hebben nu een getal dat de speler moet gaan raden. Dit is nu altijd vier, maar dit gaan we later nog aanpassen.
+
+De volgende stap is dat we een vraag gaan stellen aan de speler. Dit kan op de volgende manier:
+
+```html
+<script>
+    var getal = 4;
+    prompt("Raad een getal");
+</script>
+```
+
+Met `prompt` kunnen een vraag stellen, en tussen de haakjes kan je opgeven wat de vraag moet zijn.
+
+De volgende stap is dat we het antwoord van de speler willen opslaan in een variable. Hiervoor gaan we een nieuwe variable toevoegen met de naam 'antwoord'. Dit komt er zo uit te zien:
+
+```html
+<script>
+    var getal = 4;
+    var antwoord;
+
+    antwoord = prompt("Raad een getal");
+</script>
+```
+
+We hebben nu het antwoord van de speler opgeslagen. Nu gaan we kijken of het antwoord van de speler gelijk is aan het getal dat we hebben bedacht. Dit kan met een `if` wat engels is voor 'als'. Dit gaat op de volgende manier:
+
+```html
+<script>
+    var getal = 4;
+    var antwoord;
+
+    antwoord = prompt("Raad een getal");
+
+    if(antwoord == getal)
+    {
+        
+    }
+</script>
+```
+
+Tussen de haakjes van de `if` zet je wat je wil vergelijken. We vergelijken de variabelen 'antwoord' en 'getal'.  Als je iets wil vergelijken zet je twee '=' tekens neer (`==`). 
+
+Tussen de accolades (`{` en `}` teken) kunnen we zetten wat er moet gebeuren als het getal gelijk is aan het antwoord. Hier willen we tegen de speler gaan zeggen dat het getal goed is geraden. Dit kunnen we doen met `alert`. Dit komt er zo uit te zien:
+
+```html
+<script>
+    var getal = 4;
+    var antwoord;
+
+    antwoord = prompt("Raad een getal");
+
+    if(antwoord == getal)
+    {
+        alert("Goed geraden");
+    }
+</script>
+```
+
+Ook hier kunnen we weer tussen de haakjes zetten wat we willen zeggen. We kunnen ook iets zeggen als de speler het fout heeft geraden. Dit kan met een `else` en dat is engels voor 'anders. Onze code komt er dan zo uit te zien:
+
+```html
+<script>
+    var getal = 4;
+    var antwoord;
+
+    antwoord = prompt("Raad een getal");
+
+    if(antwoord == getal)
+    {
+        alert("Goed geraden");
+    } else { 
+        alert("Dat was helaas niet goed");
+    }
+</script>
+```
+
+De speler kan het getal nu een keer raden. De volgende stap is dat we ervoor zorgen dat de speler kan raden totdat het antwoord goed is. Dit kan door een herhaling toe te voegen. In javascript kan dit bijvoorbeeld met een `while`. We gaan de code op de volgende manier aanpassen:
+
+```html
+<script>
+    var getal = 4;
+    var antwoord;
+
+    while (antwoord != getal) {
+        antwoord = prompt("Raad een getal");
+
+        if (antwoord == getal) {
+            alert("Goed geraden");
+        } else {
+            alert("Dat was helaas niet goed");
+        }
+    }
+</script>
+```
+
+Tussen de haakjes van de `while` kunnen we opgeven voor hoe lang de code herhaald moet worden. Zo lang het antwoord niet gelijk is aan het getal wordt de code herhaalt. De tekens `!=` betekenen niet gelijk aan elkaar en is het tegenovergestelde van de tekens `==`. De code tussen de `{` en `}` na de `while` wordt nu herhaald.
+
+Nu is het getal dat de speler moet raden altijd hetzelfde. De laatste stap is dat we dit getal willekeurig gaan maken. Dit kan met `Math.random()`. Om te zorgen dat dit een getal wordt van 0 tot en met 9 eerst keer 10 doen en daarna nog afronden. Afronden kan met `Math.floor()` en om een getal keer tien te doen gebruik je `* 10`. Pas de code aan zodat het er zo uit komt te zien:
+
+```html
+<script>
+    var getal = Math.floor(Math.random() * 10);
+    var antwoord;
+
+    while (antwoord != getal) {
+        antwoord = prompt("Raad een getal");
+
+        if (antwoord == getal) {
+            alert("Goed geraden");
+        } else {
+            alert("Dat was helaas niet goed");
+        }
+    }
+</script>
+```

@@ -281,6 +281,6 @@ Nu is het getal dat de speler moet raden altijd hetzelfde. De laatste stap is da
 
 Goed gedaan! De eerste versie van ons spel is nu af.
 
-> Uitdaging: Als je het fout hebt zeg dan of het getal hoger of lager is. Tip: Om te kijken of een getal hoger is kun je het `>` teken gerbuiken in een `if`.
+> Uitdaging: Als je het fout hebt zeg dan of het getal hoger of lager is. Tip: Om te kijken of een getal hoger is kun je het `>` teken gebruiken in een `if`.
 
 > Uitdaging: Zorg ervoor dat je maximaal 5 keer kan raden. Tip: Maak een nieuwe variabele om het aantal pogingen bij te houden.

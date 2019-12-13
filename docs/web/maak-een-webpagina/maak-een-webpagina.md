@@ -92,15 +92,15 @@ Met CSS kun je aangeven hoe dingen op de pagina eruit moeten komen te zien. Om C
 
 ### Kleur van de tekst veranderen
 
-In de `<style>` tag gaan we nu CSS toevoegen om de kleur van de tekst aan te passen. Onze `<style>` tag komt er dan zo uit te zien:
+In de `<style>` tag gaan we nu CSS toevoegen om de kleur van de tekst aan te passen. Met de CSS geef je eerst aan wat op de pagina aangepast moet worden. Dit gebeurt met de `p` en betekend dat we de paragrafen op de pagina willen aanpassen. Na de `p` zet je tussen accolades, een `{` en een `}` teken, hoe dit moet worden aangepast. 
+
+Om de kleur van tekst aan te passen zet je `color` neer, dit is engels voor kleur. Daarna zet je een `:` teken neer zodat je daarna de kleur kan opgeven. Dit kan door de engelse naam van de kleur op te geven, voor blauw is dit `blue`. Onze `<style>` tag komt er dan zo uit te zien:
 
 ```html
 <style>
     p {color: blue; }
 </style>
 ```
-
-Met de CSS geef je eerst aan wat op de pagina er aangepast moet worden. Dit gebeurt met de `p` en betekend dat we de paragrafen op de pagina willen aanpassen. Na de `p` zet je tussen accolades, een `{` en een `}` teken, hoe dit moet worden aangepast. Om de kleur van tekst aan te passen zet je `color` neer, dit is engels voor kleur. Daarna zet je een `:` teken neer zodat je daarna de kleur kan opgeven. Dit kan door de engelse naam van de kleur op te geven, voor blauw is dit `blue`.
 
 ### Achtergronden
 
@@ -221,7 +221,7 @@ Tussen de accolades (`{` en `}` teken) kunnen we zetten wat er moet gebeuren als
 </script>
 ```
 
-Ook hier kunnen we weer tussen de haakjes zetten wat we willen zeggen. We kunnen ook iets zeggen als de speler het fout heeft geraden. Dit kan met een `else` en dat is engels voor 'anders. Onze code komt er dan zo uit te zien:
+Ook hier kunnen we weer tussen de haakjes zetten wat we willen zeggen. We kunnen ook iets zeggen als de speler het fout heeft geraden. Dit kan met een `else` en dat is engels voor 'anders'. Onze code komt er dan zo uit te zien:
 
 ```html
 <script>
@@ -258,9 +258,9 @@ De speler kan het getal nu een keer raden. De volgende stap is dat we ervoor zor
 </script>
 ```
 
-Tussen de haakjes van de `while` kunnen we opgeven voor hoe lang de code herhaald moet worden. Zo lang het antwoord niet gelijk is aan het getal wordt de code herhaalt. De tekens `!=` betekenen niet gelijk aan elkaar en is het tegenovergestelde van de tekens `==`. De code tussen de `{` en `}` na de `while` wordt nu herhaald.
+Tussen de haakjes van de `while` kunnen we opgeven voor hoe lang de code herhaald moet worden. Zolang het antwoord niet gelijk is aan het getal wordt de code herhaalt. De tekens `!=` betekenen niet gelijk aan elkaar en is het tegenovergestelde van de tekens `==`. De code tussen de `{` en `}` na de `while` wordt nu herhaald.
 
-Nu is het getal dat de speler moet raden altijd hetzelfde. De laatste stap is dat we dit getal willekeurig gaan maken. Dit kan met `Math.random()`. Om te zorgen dat dit een getal wordt van 0 tot en met 9 eerst keer 10 doen en daarna nog afronden. Afronden kan met `Math.floor()` en om een getal keer tien te doen gebruik je `* 10`. Pas de code aan zodat het er zo uit komt te zien:
+Nu is het getal dat de speler moet raden altijd hetzelfde. De laatste stap is dat we dit getal willekeurig gaan maken. Dit kan met `Math.random()`. Om te zorgen dat dit een getal wordt van 0 tot en met 9 moeten we het eerst keer 10 doen en daarna nog afronden. Afronden kan met `Math.floor()` en om een getal keer tien te doen gebruik je `* 10`. Pas de code aan zodat het er zo uit komt te zien:
 
 ```html
 <script>
@@ -278,3 +278,9 @@ Nu is het getal dat de speler moet raden altijd hetzelfde. De laatste stap is da
     }
 </script>
 ```
+
+Goed gedaan! De eerste versie van ons spel is nu af.
+
+> Uitdaging: Als je het fout hebt zeg dan of het getal hoger of lager is. Tip: Om te kijken of een getal hoger is kun je het `>` teken gerbuiken in een `if`.
+
+> Uitdaging: Zorg ervoor dat je maximaal 5 keer kan raden. Tip: Maak een nieuwe variabele om het aantal pogingen bij te houden.

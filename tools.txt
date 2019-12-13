@@ -9,3 +9,6 @@ https://sonic-pi.net/files/releases/v3.1.0/Sonic-Pi-for-Win-Portable-v3.1.0.paf.
 
 Sonic pi mac:
 https://sonic-pi.net/files/releases/v3.1.0/Sonic-Pi-for-Mac-v3.1.0.dmg
+
+Visual studio code (win / mac / lin):
+https://code.visualstudio.com/Download

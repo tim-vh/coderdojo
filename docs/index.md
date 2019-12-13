@@ -6,6 +6,9 @@
 - Doolhof - [Handleiding](scratch/doolhof/doolhof.md) - [Spel](https://scratch.mit.edu/projects/238803243/) - [Spel met uitbreidingen](https://scratch.mit.edu/projects/300601916/)
 - Multi level game [Voorbeeld](https://scratch.mit.edu/projects/245151514/)
 
+## Web
+- Maak een webpagina - [Handleiding](web/maak-een-webpagina/maak-een-webpagina.md)
+
 ## Minecraft
 
 - Toren en trap - [Handleiding](minecraft/toren-en-trap/toren-en-trap.md)

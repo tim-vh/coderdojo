@@ -1,0 +1,8 @@
+import arcade
+from RocketGame import *
+
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+game = RocketGame(SCREEN_WIDTH, SCREEN_HEIGHT)
+game.setup()
+arcade.run()

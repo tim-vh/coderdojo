@@ -63,7 +63,7 @@ We moeten nu verzinnen wat voor eigenschappen een klok heeft, de minimale eigens
 1. We moeten weten waar de klok geplaatst moet worden dus geven we het id van het canvas mee.
 2. We willen weten hoe groot de ruimte is waar de klok komt te staan, dus geven we een breedte en een hoogte mee. Omdat de klok rond is gaan we later uitrekenen hoe groot die moet worden om op het canvas te passen.
 
-```html
+```javascript
 			class Clock {
 				constructor (id, width, height) {
 					this.id = id;

@@ -1,5 +1,5 @@
 # Maak een klok in JavaScript
-In deze workshop gaan we een klok maken. Hierbij maken we gebruik van een beetje HTML, een beetje CSS en veel JavaScript.
+In deze workshop gaan we een klok maken. Hierbij maken we gebruik van een beetje HTML en veel JavaScript.
 
 # Basispagina in html
 
@@ -10,9 +10,6 @@ Om onze webpagina te maken beginnen we met het toevoegen van de volgende tags:
 <html>
 	<head>
 		<title>Klok</title>
-		<style>
-		
-		</style>
 	</head>
 	<body>
 
@@ -38,10 +35,6 @@ Naast een plek om te tekenen hebben we ook een plek nodig om onze JavaScriptcode
 ```html
 	<head>
 		<title>Klok</title>
-		<style>
-		
-		</style>
-		
 		<script type="text/javascript">
 
 		</script>
@@ -49,11 +42,9 @@ Naast een plek om te tekenen hebben we ook een plek nodig om onze JavaScriptcode
 ```
 
 # JavaScript
-
 JavaScript is een taal waarmee je webpagina's interactief kan maken, je kan er zelfs hele programma's in bouwen.
 
 ## Object
-
 In JavaScript werk je met objecten, dat houdt in dat alle stukjes code die we maken eigenschappen hebben en acties kunnen uitvoeren. Een klok heeft bijvoorbeeld de eigenschap dat deze rond is, dat deze wijzers heeft. Een actie van een klok is dat deze een wijzer kan laten bewegen en dat deze de tijd aangeeft. Voor een object heb je een blauwdruk, of mal nodig dat we een klasse noemen. Met een klasse kan je objecten maken. Als je een object maakt doe je dat met een methode die constructor heet. Dat is een functie die een nieuw object voor je bouwt.
 
 Ken jij voorbeelden van een blauwdruk of mal?
@@ -105,6 +96,22 @@ Alle eigenschappen van een object kan je in dat object benaderen met this. Het o
 ```
 Maar hoe moet ik dat nu lezen? Een vishaakje betekent groter of kleiner dan. Een < lijkt op een stukje van de K en betekent kleiner dan. De > betekent dus groter dan. 
 Hier staat dus eigenlijk in code: als mijn breedte kleiner is dan mijn hoogte dan is mijn radius mijn breedte gedeeld door twee, anders is mijn radius mijn hoogte gedeeld door twee.
+
+## Starten
+Omdat we nu een stukje code hebben willen we eigenlijk gelijk weten of het juist is geschreven. We doen dit door de de klok aan te roepen.
+
+```html
+		<script type="text/javascript">
+			class Clock {
+				...
+			}
+			
+			window.onload = function () {
+				let clock = new Clock("klok", 300, 300);
+			};
+		</script>
+```
+Als we dit aanroepen dan gebeurt er niet iets dat we kunnen zien. We kunnen wel zien of we een fout hebben gemaakt, maar we kunnen nog niet zien of we het goed hebben gedaan. We gaan er dus even vanuit dat zolang het niet fout is dan is het goed.
 
 ## canvas aanpassen
 We moeten nu ons tekenvel nog aanpassen zodat onze klok er op past. Hiervoor gaan we een methode toevoegen die het canvas inricht.
@@ -161,8 +168,8 @@ Om een cirkel te tekenen moeten we beginnen met een pen op het canvas zetten, ee
 
 Nadat we de boog hebben bepaald stellen we de dikte van de cirkel in op 1. Daarna tekenen we de cirkel met stroke.
 
-## Starten
-We hebben nu best veel code geschreven. Voor de webpagina, voor het tekenvel en voor de cirkel. We hebben alleen geen idee hoe het eruit ziet. Daarom gaan we nu een methode toevoegen die de cirkel voor ons op het tekenvel kan maken.
+## Resultaat
+Om het resultaat van onze oefeningen te kunnen bekijken gaan we de aanroep een beetje aanpassen. In eerste instantie hadden we alleen een clock object gemaakt, nu gaan we ook het canvas en de cirkel functie aanroepen.
 
 ```html
 		<script type="text/javascript">
@@ -170,14 +177,15 @@ We hebben nu best veel code geschreven. Voor de webpagina, voor het tekenvel en 
 				...
 			}
 			
-			document.body.onload(
+			window.onload = function () {
 				let clock = new Clock("klok", 300, 300);
 				clock.canvas();
 				clock.circle();
-			);
+			};
 		</script>
 ```
-		
+We moeten nu een cirkel om het scherm kunnen zien. Deze cirkel is misschien niet helemaal perfect omdat deze precies even groot is als het canvas en daarom lijkt het alsof deze een beetje van het scherm valt. Voor nu vinden we dat niet erg, je kan zelf later uitzoeken hoe je dat mooier kan maken (tip: dit heeft met de grootte van de cirkel en de grootte van het canvas te maken).
+
 # Tijd in JavaScript
 Tijd in JavaScript kan je niet tellen zoals je dat met een horloge doet. Je moet eigenlijk met JavaScript zo nu en dan kijken hoe laat het is. Dat doe je met een timeout. Een timeout is een soort kookwekker die na een aantal milliseconden kijkt hoe laat het is. Voor de klok gaan we dan ook elke seconde kijken hoe laat het is en tekenen we de klok opnieuw.
 
@@ -199,8 +207,15 @@ Tijd in JavaScript kan je niet tellen zoals je dat met een horloge doet. Je moet
 			...
 		</script>
 ```
-
-Elke seconde wordt nu de methode show aangeroepen en die zorgt ervoor dat de klok opnieuw wordt getekend. 
+De timer is nu gemaakt, nu moet deze worden aangeroepen. De window.onload functie moet daarvoor worden aangepast.
+```html
+			window.onload = function () {
+				let clock = new Clock("klok", 300, 300);
+				clock.canvas();
+				clock.show();
+			};
+```
+We hebben circle in show veranderd. Bij het laden wordt nu een canvas getekend, dan wordt er een timer gezet die elke seconde de cirkel opnieuw tekent.  Als je goed lijkt wordt de cirkel steeds dikker. Dat komt omdat we voordat we gaan tekenen ons canvas niet schoon maken. Voor een cirkel is dat geen probleem, maar zometeen als we wijzers gaan tekenen gaat het wel fout. Let maar op.
 
 ## Wijzers
 Wijzers zijn eigenlijk lijnen, een klok heeft drie lijnen: een voor de uren, een voor de minuten en een voor de seconden. We gaan dus als handigheid een methode maken die een lijn tekent en die methode gaan we dan drie keer aanroepen. Een uurlijn is kort en dik en zwart. Een minutenlijn is lang en dun en zwart. Een secondenlijn is lang en dun en rood. Een lijn moet dus alle drie deze eigenschappen bevatten.
@@ -258,3 +273,45 @@ Je ziet hier drie methoden. De eerste is om de eerder gemaakte line methode aan 
 
 De eerste methode draw krijgt als parameter de tijd mee en een paar instellingen. De tijd gebruiken we om de hoek te berekenen waarin we de lijn van de wijzers moeten zetten. Daarna gaan we het punt op de cirkel bepalen waar we de lijn vanaf het midden naartoe moeten tekenen. Dat punt berekenen we met de derde methode; de parameters zijn de x en y coordinaten op het canvas waar we moeten beginnen. Daarna de radius en daarna de hoek (die hadden we al eerder met de tweede methode uitgerekend). De methode point geeft een lijstje terug met op de eerste plaats de x en op de tweede plaats de y coordinaat op de cirkel waar de lijn van de wijzer naar toe moet worden getekend. Draw roept nu de eerdere methode line aan om de lijn te tekenen in de juiste dikte en met de juiste kleur.
 
+## Teken de wijzers
+We gaan de show methode aanpassen en wijzers tekenen.
+
+```html
+				show() {
+					this.circle();
+					
+					// get the time and draw the hands
+					var date = new Date();
+					this.draw(date.getSeconds(), {colour: 'red', length: 0.9});
+					this.draw(date.getMinutes(), {width: 2, length: 0.8});
+					this.draw(date.getHours() * 5, {width: 3, length: 0.6});
+					
+					var that = this;
+					setTimeout(function() {
+						that.show();
+					}, 1000);
+				}	
+```
+Als je nu je pagina bekijkt zie je een wijzerplaat en er verschijnt steeds een nieuwe wijzer. Dat ziet er best gek uit. Wat we nog moeten doen is elke keer dat we de klok tekenen even het canvas schoonmaken.
+
+## Opschonen
+```html
+		<script type="text/javascript">
+			class Clock {
+				...
+				
+				clean() {
+					this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);				
+				}
+			
+				show() {
+					this.clean();
+					this.circle();
+					...
+			}
+		</script>
+```
+We hebben een clean methode toegevoegd die het canvas schoonmaakt. Vervolgens roepen we deze methode in show aan.
+
+# Klaar!
+Nu heb je als het goed is een werkende klok. Kan je deze nu pimpen?

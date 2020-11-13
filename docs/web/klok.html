@@ -1,0 +1,102 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			class Clock {
+				constructor (id, width, height) {
+					this.id = id;
+					this.width = width;
+					this.height = height;
+					
+					// uitrekenen hoe groot de klok wordt, de radius is een halve doorsnee en dat moeten we bepalen door de kortste kant door twee te delen
+					if (this.width < this.height) {
+						this.radius = this.width / 2;
+					} else {
+						this.radius = this.height / 2;
+					}
+				}
+			
+				canvas () {
+					this.canvas = document.getElementById(this.id);
+					this.canvas.width = this.width;
+					this.canvas.height = this.height;
+					this.context = this.canvas.getContext("2d");
+				}	
+				
+				circle() {
+					this.context.beginPath();
+					this.context.arc(
+						this.canvas.width / 2,
+						this.canvas.height / 2,
+						this.radius,
+						0,
+						Math.PI*2
+					);
+					
+					this.context.lineWidth=1;
+					this.context.stroke();
+				}				
+				
+				line(x, y, params) {
+					this.context.beginPath();
+					this.context.moveTo(this.canvas.width / 2, this.canvas.height / 2);
+					this.context.lineTo(x, y);
+					this.context.lineWidth = params.width ? params.width : 1;
+					this.context.strokeStyle = params.colour ? params.colour : 'black';
+					this.context.stroke();
+				}
+
+				clean() {
+					this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);				
+				}
+				
+				draw(dt, params) {
+					var angle = this.sec2radian(dt);
+					var point = this.point(
+						this.canvas.width / 2,
+						this.canvas.height / 2,
+						params.length ? params.length * this.radius: this.radius,
+						angle
+					);
+					
+					this.line(point[0], point[1], params);
+				}			
+
+				sec2radian(sec) {
+					return (2 * Math.PI / 60 * sec) - (Math.PI / 2);
+				}
+				
+				point(x, y, r, angle) {
+					return [x + Math.cos(angle) * r, y + Math.sin(angle) * r];
+				}
+				
+				show() {
+					this.clean();
+					this.circle();
+					
+					// get the time and draw the hands
+					var date = new Date();
+					this.draw(date.getSeconds(), {colour: 'red', length: 0.9});
+					this.draw(date.getMinutes(), {width: 2, length: 0.8});
+					this.draw(date.getHours() * 5, {width: 3, length: 0.6});
+					
+					var that = this;
+					setTimeout(function() {
+						that.show();
+					}, 1000);
+				}				
+			}
+			
+			window.onload = function () {
+				// create a new clock and give id and size
+				let clock = new Clock("klok", 300, 300);
+				clock.canvas();
+				clock.show();
+			};
+		</script>
+	</head>
+	
+	<body>
+		<canvas id="klok">
+		</canvas>
+	</body>
+</html>

@@ -1,286 +1,260 @@
-# Maak je eigen webpagina 
+# Maak een klok in JavaScript
+In deze workshop gaan we een klok maken. Hierbij maken we gebruik van een beetje HTML, een beetje CSS en veel JavaScript.
 
-## HTML
-
-Een HTML-pagina bestaat uit tags waarmee je aangeeft wat je op de pagina wil tonen en hoe dit eruit komt te zien. Een tag staat tussen een '<' en een '>' teken. Dit ziet er dan bijvoorbeeld zo uit: `<p>`. Dit is een begin-tag maar je hebt ook een eindtag. Die ziet er zo uit: `</p>`. Tussen de begin- en eindtag zet je de inhoud. Als je een paragraaf (een soort hoofdstuk) wil maken ziet dit er zo uit: `<p>Dit is een paragraaf met tekst</p>`
-
-### Basispagina
+# Basispagina in html
 
 Om onze webpagina te maken beginnen we met het toevoegen van de volgende tags:
 
 ```html
 <!DOCTYPE html>
 <html>
-<body>
+	<head>
+		<title>Klok</title>
+		<style>
+		
+		</style>
+	</head>
+	<body>
 
-</body>
+	</body>
 </html>
 ```
 
-Hiermee maak je een lege pagina. Met `<!DOCTYPE html>` geef je aan wat het type html is. De `<html>` geeft aan dat hier de HTML begint. Met `<body>` geef je aan dat dit de inhoud van de pagina is.
+Hiermee maken we een lege html pagina met een titel en een plekje voor de stijl-elementen die we later willen toevoegen.
 
-### Tekst
-
-Als je tekst toe wilt voegen kun je dit bijvoorbeeld in een paragraaf zetten. Dit kan door een `<p>` tag in de `<body>` tag te zetten. De HTML op de pagina komt er dan zo uit te zien:
-
-```html
-<!DOCTYPE html>
-<html>
-<body>
-    <p>Dit is een paragraaf met tekst</p>
-</body>
-</html>
-```
-
-### Titels
-
-Titels kun je toevoegen met de tags `<h1>` t/m `<h6>`. De 'h' staat voor heading en betekent titel of kop. De `<h1>` is de belangrijkste kop en is standaard het grootst. De `<h6>` is de minst belangrijkste kop en is standaard het kleinst. Een titel kan er bijvoorbeeld zo uitzien:
+## Canvas
+Om een klok te kunnen maken gaan we tekenen in JavaScript, hiervoor hebben we een canvas nodig. Tussen de body-elementen van de webpagina maken we daarom een canvas aan. We geven het canvas ook een unieke naam mee, die we zometeen vanuit JavaScript kunnen gebruiken.
 
 ```html
-<h1>Dit is de titel van de website</h1>
+	<body>
+		<canvas id="klok">
+		</canvas>
+	</body>
 ```
 
-### Links toevoegen
-
-Met een link kun je naar een andere pagina gaan. Een link kun je maken met de `<a>` tag. Tussen de begin- en eindtag zet je de naam van de link. Dit ziet er dan zo uit:
+## Javascript container
+Naast een plek om te tekenen hebben we ook een plek nodig om onze JavaScriptcode in te zetten, dat doen met met een script-tag in html. Script zetten we altijd netjes in de head van de pagina. We geven in de script-tag ook netjes aan om welk soort script het gaat.
 
 ```html
-<a>Zoeken met google<a>
+	<head>
+		<title>Klok</title>
+		<style>
+		
+		</style>
+		
+		<script type="text/javascript">
+
+		</script>
+	</head>
 ```
 
-Nu moeten we nog opgeven wat het adres is van webpagina waar we naartoe willen linken. Dit kan door een attribuut toe te voegen. Een attribuut zet je in de tag. Om het adres van de link op te geven gebruik je het `href` attribuut. Voor onze link naar google ziet dit er dan zo uit:
+# JavaScript
+
+JavaScript is een taal waarmee je webpagina's interactief kan maken, je kan er zelfs hele programma's in bouwen.
+
+## Object
+
+In JavaScript werk je met objecten, dat houdt in dat alle stukjes code die we maken eigenschappen hebben en acties kunnen uitvoeren. Een klok heeft bijvoorbeeld de eigenschap dat deze rond is, dat deze wijzers heeft. Een actie van een klok is dat deze een wijzer kan laten bewegen en dat deze de tijd aangeeft. Voor een object heb je een blauwdruk, of mal nodig dat we een klasse noemen. Met een klasse kan je objecten maken. Als je een object maakt doe je dat met een methode die constructor heet. Dat is een functie die een nieuw object voor je bouwt.
+
+Ken jij voorbeelden van een blauwdruk of mal?
+
+Een klasse maak je als volgt:
+```html
+		<script type="text/javascript">
+			class Clock {
+			}
+		</script>
+```
+
+## Constructor
+We moeten nu verzinnen wat voor eigenschappen een klok heeft, de minimale eigenschappen waarvan wij vinden dat een klok een klok maakt die nemen we op als eigenschappen in de constructor.
+
+1. We moeten weten waar de klok geplaatst moet worden dus geven we het id van het canvas mee.
+2. We willen weten hoe groot de ruimte is waar de klok komt te staan, dus geven we een breedte en een hoogte mee. Omdat de klok rond is gaan we later uitrekenen hoe groot die moet worden om op het canvas te passen.
 
 ```html
-<a href="https://www.google.com/">Zoeken met google</a>
+			class Clock {
+				constructor (id, width, height) {
+					this.id = id;
+					this.width = width;
+					this.height = height;
+				}
+			}
 ```
 
-### Plaatjes
+## this
+Weet jij wat this betekent?
 
-Om een plaatje toe te voegen op een pagina kun je de `<img>` tag gebruiken. Deze tag heeft alleen maar een begin-tag omdat er niks tussen de tags kan komen te staan. Om aan te geven welke afbeelding je wil laten zien op je pagina kun je een `src` attribuut toevoegen met daarin het adres van de afbeelding. Dit ziet er dan zo uit:
+Alle eigenschappen van een object kan je in dat object benaderen met this. Het object vraagt eigenlijk iets aan zichzelf. In de constructor kunnen we al dingen gaan doen, zoals het uitrekenen hoe groot de klok wordt.
 
 ```html
-<img src="http://eenwebsite.nl/afbeelding.jpg">
+			class Clock {
+				constructor (id, width, height) {
+					this.id = id;
+					this.width = width;
+					this.height = height;
+					
+					// uitrekenen hoe groot de klok wordt, de radius is een halve doorsnee en dat moeten we bepalen door de kortste kant door twee te delen
+					if (this.width < this.height) {
+						this.radius = this.width / 2;
+					} else {
+						this.radius = this.height / 2;
+					}
+				}
+			}
+```
+Maar hoe moet ik dat nu lezen? Een vishaakje betekent groter of kleiner dan. Een < lijkt op een stukje van de K en betekent kleiner dan. De > betekent dus groter dan. 
+Hier staat dus eigenlijk in code: als mijn breedte kleiner is dan mijn hoogte dan is mijn radius mijn breedte gedeeld door twee, anders is mijn radius mijn hoogte gedeeld door twee.
+
+## canvas aanpassen
+We moeten nu ons tekenvel nog aanpassen zodat onze klok er op past. Hiervoor gaan we een methode toevoegen die het canvas inricht.
+```html
+			class Clock {
+				constructor (id, width, height) {
+					...
+				}
+				
+				canvas () {
+					this.canvas = document.getElementById(this.id);
+					this.canvas.width = this.width;
+					this.canvas.height = this.height;
+					this.context = this.canvas.getContext("2d");
+				}
+			}
+```
+Deze methode haalt het canvas-html-element op en geeft dat element dan een breedte en een hoogte. Vervolgens moeten we een eigenschap van het canvas ophalen en bewaren zodat we kunnen gaan tekenen. Tekenen doen we op basis van de context.
+
+## cirkel tekenen
+Deze klok heeft een rand, zodat deze goed zichtbaar is op het canvas. De rand is een cirkel, die moeten we dus gaan tekenen.
+```html
+			class Clock {
+				constructor (id, width, height) {
+					...
+				}
+				
+				canvas () {
+					...
+				}
+				
+				circle() {
+					this.context.beginPath();
+					this.context.arc(
+						this.canvas.width / 2,
+						this.canvas.height / 2,
+						this.radius,
+						0,
+						Math.PI*2
+					);
+					
+					this.context.lineWidth=1;
+					this.context.stroke();
+				}
+			}
 ```
 
-### Youtube video toevoegen
+Om een cirkel te tekenen moeten we beginnen met een pen op het canvas zetten, een pad (paadje) maken met path. Daarna zeggen we dat we een boog willen maken, dat noemen we een arc. Je kan zien dat arc een methode is van het object context. Die methode heeft parameters nodig. Parameters zijn waardes die we aan het object geven zodat die er iets mee kan doen. Bij de methode arc geven we vijf parameters mee:
+1. x-coordinaat van het centrum van de cirkel: de helft dus van de totale breedte
+2. y-coordinaat van het midden van de cirkel: de helft van de totale hoogte
+3. r: de radius van de cirkel
+4. start punt: we starten op rad 0 
+5. eind punt: we eindigen aan het einde van de cirkel (dat is de totale omtrek in dit geval: 2*PI*r)
 
-Video's die op youtube staan kun je ook op je eigen webpagina zetten (Kan niet met alle video's). Ga hiervoor naar youtube en ga naar de video die je op de site wil zetten. Klik daarna op de knop 'delen' onder de video. Kies daarna voor 'Insluiten'. Nu zie je aan de rechterkant HTML verschijnen die we op onze webpagina kunnen zetten. Dit ziet er zo uit:
+Nadat we de boog hebben bepaald stellen we de dikte van de cirkel in op 1. Daarna tekenen we de cirkel met stroke.
+
+## Starten
+We hebben nu best veel code geschreven. Voor de webpagina, voor het tekenvel en voor de cirkel. We hebben alleen geen idee hoe het eruit ziet. Daarom gaan we nu een methode toevoegen die de cirkel voor ons op het tekenvel kan maken.
 
 ```html
-<iframe width="560" height="315" src="https://www.youtube.com/embed/c7ROVdcyk7s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<script type="text/javascript">
+			class Clock {
+				...
+			}
+			
+			document.body.onload(
+				let clock = new Clock("klok", 300, 300);
+				clock.canvas();
+				clock.circle();
+			);
+		</script>
 ```
-
-### Andere tags
-
-Op de volgende website kun je een Lijst van alle HTML tags vinden: https://www.w3schools.com/tags/
-
-## CSS
-
-Met CSS kun je aangeven hoe dingen op de pagina eruit moeten komen te zien. Om CSS toe te voegen gaan we eerst een `<style>` tag aan de HTML toevoegen. In deze tag komt de CSS te staan. Onze HTML ziet er dan zo uit:
+		
+# Tijd in JavaScript
+Tijd in JavaScript kan je niet tellen zoals je dat met een horloge doet. Je moet eigenlijk met JavaScript zo nu en dan kijken hoe laat het is. Dat doe je met een timeout. Een timeout is een soort kookwekker die na een aantal milliseconden kijkt hoe laat het is. Voor de klok gaan we dan ook elke seconde kijken hoe laat het is en tekenen we de klok opnieuw.
 
 ```html
-<!DOCTYPE html>
-<html>
-    <style>
-            
-    </style>
-    <body>
-        <p>Dit is een paragraaf met tekst</p>
-    </body>
-</html>
+		<script type="text/javascript">
+			class Clock {
+				...
+				
+				show() {
+					this.circle();
+					
+					var that = this;
+					setTimeout(function() {
+						that.show();
+					}, 1000);
+				}
+			}
+			
+			...
+		</script>
 ```
 
-### Kleur van de tekst veranderen
+Elke seconde wordt nu de methode show aangeroepen en die zorgt ervoor dat de klok opnieuw wordt getekend. 
 
-In de `<style>` tag gaan we nu CSS toevoegen om de kleur van de tekst aan te passen. Met de CSS geef je eerst aan wat op de pagina aangepast moet worden. Dit gebeurt met de `p` en betekend dat we de paragrafen op de pagina willen aanpassen. Na de `p` zet je tussen accolades, een `{` en een `}` teken, hoe dit moet worden aangepast. 
-
-Om de kleur van tekst aan te passen zet je `color` neer, dit is engels voor kleur. Daarna zet je een `:` teken neer zodat je daarna de kleur kan opgeven. Dit kan door de engelse naam van de kleur op te geven, voor blauw is dit `blue`. Onze `<style>` tag komt er dan zo uit te zien:
+## Wijzers
+Wijzers zijn eigenlijk lijnen, een klok heeft drie lijnen: een voor de uren, een voor de minuten en een voor de seconden. We gaan dus als handigheid een methode maken die een lijn tekent en die methode gaan we dan drie keer aanroepen. Een uurlijn is kort en dik en zwart. Een minutenlijn is lang en dun en zwart. Een secondenlijn is lang en dun en rood. Een lijn moet dus alle drie deze eigenschappen bevatten.
 
 ```html
-<style>
-    p {color: blue; }
-</style>
+		<script type="text/javascript">
+			class Clock {
+				...
+								
+				line(x, y, params) {
+					this.context.beginPath();
+					this.context.moveTo(this.canvas.width / 2, this.canvas.height / 2);
+					this.context.lineTo(x, y);
+					this.context.lineWidth = params.width ? params.width : 1;
+					this.context.strokeStyle = params.colour ? params.colour : 'black';
+					this.context.stroke();
+				}
+			}
+		</script>
 ```
 
-### Achtergronden
+Bovenstaande methode tekent voor ons een lijn. We beginnen met tekenen in de context, daarna gaan we naar het midden met moveTo en dan gaan we een lijn tekenen naar de x en y coordinaten op de rand van de cirkel. Daarna geven we ook aan hoe dik de lijn moet zijn (behalve als we dat niet weten dan wordt de lijn 1 dik) en we geven de kleur aan (behalve als we dat niet weten dan wordt de lijn rood). En als laatste tekenen we de lijn met stroke.
 
-Als je de achtergrondkleur van de pagina wil aanpassen kan dat met de eigenschap `background-color`. Deze kun je dan instellen voor de `body` tag. Als je de achtergrond groen wil maken kan dat op de volgende manier:
+## Wijzers op de juiste plek
+We hebben nu wijzers maar we weten niet waar x en y zijn. We moeten dus eigenlijk de echte tijd weten en die vertalen naar een plekje op de cirkel van de klok.
 
 ```html
-<style>
-    body { background-color: green; }
-</style>
+		<script type="text/javascript">
+			class Clock {
+				...
+								
+				draw(dt, params) {
+					var angle = this.sec2radian(dt);
+					var point = this.point(
+						this.canvas.width / 2,
+						this.canvas.height / 2,
+						params.length ? params.length * this.radius: this.radius,
+						angle
+					);
+					
+					this.line(point[0], point[1], params);
+				}			
+
+				sec2radian(sec) {
+					return (2 * Math.PI / 60 * sec) - (Math.PI / 2);
+				}
+				
+				point(x, y, r, angle) {
+					return [x + Math.cos(angle) * r, y + Math.sin(angle) * r];
+				}
+			}
+		</script>
 ```
+Je ziet hier drie methoden. De eerste is om de eerder gemaakte line methode aan te roepen. De tweede is om de hoek te bepalen. Laten we het even stap voor stap doornemen en we beginnen bij de tweede methode. Een stukje cirkel dat even lang is als de straal of radius noem je een radian. Een cirkel is altijd 2*PI*radius groot. Een rondje is 60 seconden. We berekenen dus op welke plek van de cirkel we moeten zijn op het huidige aantal seconden. Let op dat een radius altijd op kwart over / drie uur begint. Een kwart cirkel is gelijk aan een halve pi, daarom corrigeren we met een halve pi.
 
-Het is ook mogelijk om een plaatje te gebruiken als achtergrond. Dit kan met de eigenschap `background-image`. Hierachter kun je de locatie (url) van een plaatje opgeven. Dit ziet er dan zo uit:
+De eerste methode draw krijgt als parameter de tijd mee en een paar instellingen. De tijd gebruiken we om de hoek te berekenen waarin we de lijn van de wijzers moeten zetten. Daarna gaan we het punt op de cirkel bepalen waar we de lijn vanaf het midden naartoe moeten tekenen. Dat punt berekenen we met de derde methode; de parameters zijn de x en y coordinaten op het canvas waar we moeten beginnen. Daarna de radius en daarna de hoek (die hadden we al eerder met de tweede methode uitgerekend). De methode point geeft een lijstje terug met op de eerste plaats de x en op de tweede plaats de y coordinaat op de cirkel waar de lijn van de wijzer naar toe moet worden getekend. Draw roept nu de eerdere methode line aan om de lijn te tekenen in de juiste dikte en met de juiste kleur.
 
-```html
-<style>
-    body { background-image: url('http://eenwebsite.nl/afbeelding.jpg'); }
-</style>
-```
-
-### Lettergrote
-
-Om letters groter te maken kun je gebruik maken van de eigenschap `font-size`. Dit kan bijvoorbeeld op de volgende manier
-
-```html
-<style>
-    p { font-size: 50px; }
-</style>
-```
-
-Nu hebben we voor paragrafen de grote van de letters 50 pixels gemaakt.
-
-### Andere CSS-eigenschappen
-
-Op de volgende website kun je een Lijst van alle CSS-eigenschappen vinden: https://www.w3schools.com/cssref/
-
-## Javascript
-
-Met javascript kun je een webpagina programmeren. Om javascript toe te voegen gaan we eerst een `<script>` tag aan de HTML toevoegen. In deze tag komt de javascript te staan. Onze HTML ziet er dan zo uit:
-
-```html
-<!DOCTYPE html>
-<html>
-    <script>
-            
-    </script>
-    <body>
-    </body>
-</html>
-```
-
-### Raad een getal
-
-Met javascript gaan we een klein spelletje maken dat je op de webpagina kan spelen. In het spel is het de bedoeling dat de speler een getal gaat raden.
-
-De eerste stap is dat we een getal gaan bedenken en dat we deze opslaan. Dit gaan we doen in een variable. Dit gaat op de volgende manier:
-
-```html
-<script>
-    var getal = 4;
-</script>
-```
-
-We hebben nu een getal dat de speler moet gaan raden. Dit is nu altijd vier, maar dit gaan we later nog aanpassen.
-
-De volgende stap is dat we een vraag gaan stellen aan de speler. Dit kan op de volgende manier:
-
-```html
-<script>
-    var getal = 4;
-    prompt("Raad een getal");
-</script>
-```
-
-Met `prompt` kunnen een vraag stellen, en tussen de haakjes kan je opgeven wat de vraag moet zijn.
-
-De volgende stap is dat we het antwoord van de speler willen opslaan in een variable. Hiervoor gaan we een nieuwe variable toevoegen met de naam 'antwoord'. Dit komt er zo uit te zien:
-
-```html
-<script>
-    var getal = 4;
-    var antwoord;
-
-    antwoord = prompt("Raad een getal");
-</script>
-```
-
-We hebben nu het antwoord van de speler opgeslagen. Nu gaan we kijken of het antwoord van de speler gelijk is aan het getal dat we hebben bedacht. Dit kan met een `if` wat engels is voor 'als'. Dit gaat op de volgende manier:
-
-```html
-<script>
-    var getal = 4;
-    var antwoord;
-
-    antwoord = prompt("Raad een getal");
-
-    if(antwoord == getal)
-    {
-        
-    }
-</script>
-```
-
-Tussen de haakjes van de `if` zet je wat je wil vergelijken. We vergelijken de variabelen 'antwoord' en 'getal'.  Als je iets wil vergelijken zet je twee '=' tekens neer (`==`). 
-
-Tussen de accolades (`{` en `}` teken) kunnen we zetten wat er moet gebeuren als het getal gelijk is aan het antwoord. Hier willen we tegen de speler gaan zeggen dat het getal goed is geraden. Dit kunnen we doen met `alert`. Dit komt er zo uit te zien:
-
-```html
-<script>
-    var getal = 4;
-    var antwoord;
-
-    antwoord = prompt("Raad een getal");
-
-    if(antwoord == getal)
-    {
-        alert("Goed geraden");
-    }
-</script>
-```
-
-Ook hier kunnen we weer tussen de haakjes zetten wat we willen zeggen. We kunnen ook iets zeggen als de speler het fout heeft geraden. Dit kan met een `else` en dat is engels voor 'anders'. Onze code komt er dan zo uit te zien:
-
-```html
-<script>
-    var getal = 4;
-    var antwoord;
-
-    antwoord = prompt("Raad een getal");
-
-    if(antwoord == getal)
-    {
-        alert("Goed geraden");
-    } else { 
-        alert("Dat was helaas niet goed");
-    }
-</script>
-```
-
-De speler kan het getal nu een keer raden. De volgende stap is dat we ervoor zorgen dat de speler kan raden totdat het antwoord goed is. Dit kan door een herhaling toe te voegen. In javascript kan dit bijvoorbeeld met een `while`. We gaan de code op de volgende manier aanpassen:
-
-```html
-<script>
-    var getal = 4;
-    var antwoord;
-
-    while (antwoord != getal) {
-        antwoord = prompt("Raad een getal");
-
-        if (antwoord == getal) {
-            alert("Goed geraden");
-        } else {
-            alert("Dat was helaas niet goed");
-        }
-    }
-</script>
-```
-
-Tussen de haakjes van de `while` kunnen we opgeven voor hoe lang de code herhaald moet worden. Zolang het antwoord niet gelijk is aan het getal wordt de code herhaalt. De tekens `!=` betekenen niet gelijk aan elkaar en is het tegenovergestelde van de tekens `==`. De code tussen de `{` en `}` na de `while` wordt nu herhaald.
-
-Nu is het getal dat de speler moet raden altijd hetzelfde. De laatste stap is dat we dit getal willekeurig gaan maken. Dit kan met `Math.random()`. Om te zorgen dat dit een getal wordt van 0 tot en met 9 moeten we het eerst keer 10 doen en daarna nog afronden. Afronden kan met `Math.floor()` en om een getal keer tien te doen gebruik je `* 10`. Pas de code aan zodat het er zo uit komt te zien:
-
-```html
-<script>
-    var getal = Math.floor(Math.random() * 10);
-    var antwoord;
-
-    while (antwoord != getal) {
-        antwoord = prompt("Raad een getal");
-
-        if (antwoord == getal) {
-            alert("Goed geraden");
-        } else {
-            alert("Dat was helaas niet goed");
-        }
-    }
-</script>
-```
-
-Goed gedaan! De eerste versie van ons spel is nu af.
-
-> Uitdaging: Als je het fout hebt zeg dan of het getal hoger of lager is. Tip: Om te kijken of een getal hoger is kun je het `>` teken gebruiken in een `if`.
-
-> Uitdaging: Zorg ervoor dat je maximaal 5 keer kan raden. Tip: Maak een nieuwe variabele om het aantal pogingen bij te houden.

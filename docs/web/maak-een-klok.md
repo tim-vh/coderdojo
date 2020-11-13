@@ -78,7 +78,7 @@ Weet jij wat this betekent?
 
 Alle eigenschappen van een object kan je in dat object benaderen met this. Het object vraagt eigenlijk iets aan zichzelf. In de constructor kunnen we al dingen gaan doen, zoals het uitrekenen hoe groot de klok wordt.
 
-```html
+```javascript
 			class Clock {
 				constructor (id, width, height) {
 					this.id = id;
@@ -115,7 +115,7 @@ Als we dit aanroepen dan gebeurt er niet iets dat we kunnen zien. We kunnen wel 
 
 ## canvas aanpassen
 We moeten nu ons tekenvel nog aanpassen zodat onze klok er op past. Hiervoor gaan we een methode toevoegen die het canvas inricht.
-```html
+```javascript
 			class Clock {
 				constructor (id, width, height) {
 					...
@@ -133,7 +133,7 @@ Deze methode haalt het canvas-html-element op en geeft dat element dan een breed
 
 ## cirkel tekenen
 Deze klok heeft een rand, zodat deze goed zichtbaar is op het canvas. De rand is een cirkel, die moeten we dus gaan tekenen.
-```html
+```javascript
 			class Clock {
 				constructor (id, width, height) {
 					...
@@ -208,7 +208,7 @@ Tijd in JavaScript kan je niet tellen zoals je dat met een horloge doet. Je moet
 		</script>
 ```
 De timer is nu gemaakt, nu moet deze worden aangeroepen. De window.onload functie moet daarvoor worden aangepast.
-```html
+```javascript
 			window.onload = function () {
 				let clock = new Clock("klok", 300, 300);
 				clock.canvas();
@@ -276,7 +276,7 @@ De eerste methode draw krijgt als parameter de tijd mee en een paar instellingen
 ## Teken de wijzers
 We gaan de show methode aanpassen en wijzers tekenen.
 
-```html
+```javascript
 				show() {
 					this.circle();
 					

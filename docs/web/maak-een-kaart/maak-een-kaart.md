@@ -109,7 +109,7 @@ Met de CSS geef je eerst aan wat op de pagina aangepast moet worden. Dit gebeurt
 
 Om de kleur van tekst aan te passen zet je `color` neer, dit is engels voor kleur. Daarna zet je een `:` teken neer zodat je daarna de kleur kan opgeven. Dit kan door de engelse naam van de kleur op te geven, voor groen is dit `green`. 
 
-```html
+```css
 h1 {
   color: green;
 }
@@ -119,7 +119,7 @@ h1 {
 
 Om een achtergrond afbeelding toe te voegen gaan we de CSS voor de body en de html tag toevoegen
 
-```html
+```css
 h1 {
   color: green;
 }
@@ -141,7 +141,7 @@ De CSS voor de html zorgt dat de html pagina zo hoog wordt als het scherm. In de
 
 Om de kaart in het midden van de pagina te zetten en de kleuren van de kaart aan te passen gaan we CSS voor de kaart toevoegen. Omdat we in de html de kaart een id hebben gegeven kunnen we in de CSS zeggen dat we alleen styling voor de kaart willen toevoegen. Als we een `#` teken neerzetten met daarachter het id geldt de opmaak alleen voor die html. Dit ziet er dan zo uit:
 
-```html
+```css
 h1 {
   color: green;
 }
@@ -169,3 +169,100 @@ Met `margin: 0 auto;` zorgen we dat de kaart in het midden van de pagina wordt g
 
 Ook kunnen zorgen we er nog voor dat de kaart een witte achtergrond krijgt met `background-color: white;`. Als laatste voegen we een rand toe aan de kaar. Dit geberut met `border: 20px solid red;`, wat betekend dat de rand 20 pixels breed moet worden, van het type 'solid' is en een rode kleur krijgt.
 
+## Programmeren met javascript
+
+We gaan aan onze kaart toevoegen dat iemand zijn naam kan opgeven, zodat we dit in de tekst van de kaart kunnen zetten. Om dit te kunnen doen gaan we eerst een formulier aan de html toevoegen. Dit formulier zetten we boven de kaart in de `<body>` tag van de html. Dit kan op de volgende manier.
+
+```html
+...
+<div id="form">
+  <label for="naam">Wat is je naam</label>
+  <input id="naam" type="text" />
+  <button id="create">
+    Maak kaart
+  </button>
+</div>
+...
+```
+
+Om het er wat mooier uit te laten zien voegen we de volgende css toe voor het formulier:
+
+```css
+...
+#form {
+  background-color: white;
+  margin: 0 auto;
+  width: 50%;
+  padding: 20px;
+}
+...
+```
+
+Nu gaan we de javascript toevoegen waarmee we de kaart programmeren. We gaan eerst een functie toevoegen. In de functie gaan we neerzetten wat er moet gebeuren. De functie ziet er zo uit:
+
+```javascript
+function create() {
+
+}
+```
+
+We willen de functie uitvoeren als we op de knop van het formulier drukken. Hiervoor gaan we de html als volgt aanpassen
+
+```html
+...
+    <div id="form">
+      <label for="naam">Wat is je naam</label>
+      <input id="naam" type="text" />
+      <button id="create" onclick="create()">
+        Maak kaart
+      </button>
+    </div>
+...
+```
+
+In `<button>` tag is er een 'event' toegevoegd. Deze ziet er zo uit `onclick="create()"`. Dit betekend dat als er op de knop wordt geklikt de functie 'create' wordt aangeroepen.
+
+We gaan testen of de knop en de functie goed werken. We gaan hiervoor eest een stuk code aan de functie toevoegen:
+
+```javascript
+function create() {
+  alert('test');
+}
+```
+
+Als je nu op de knop drukt zie je ongeveer het volgende:
+
+![Image](afbeeldingen/alert.png)
+
+Nu gaan we de code aanpassen zodat de naam uit het formulier op de kaart wordt gezet. Om dit te doen moeten we eerst in de html zetten waar de naam moet komen. Daarvoor gaan we een `<span>' tag toevoegen met een id zodat we de tag kunnen vinden met code. Dit komt er zo uit te zien in de html:
+
+```html
+...
+<p>
+  Hallo <span id="naam-tekst"></span>,
+  Een fijne kerst en een gelukkig nieuw jaar.
+  Groeten, Coderdojo
+</p>
+...
+```
+
+Nu kunnen we code gaan toevoegen om de naam op te halen uit het formulier. Dit kan op de volgende manier:
+
+```javascript
+function create() {
+	var naam = document.getElementById('naam').value;  
+}
+```
+
+Met deze code maken we een variabele en die vullen we met de waarde die in het invoerveld met het id 'naam' staat.
+
+Nu gaan we ervoor zorgen dat de naam in de tekst komt te staan. Dit kan op de volgende manier:
+
+```javascript
+function create() {
+  var naam = document.getElementById('naam').value;
+  document.getElementById('naam-tekst').innerHTML = naam;
+}
+```
+
+We hebben nu een regel toegevoegd die eerst de plek in de html ophaalt waar de naam moet komen te staan. Daarna vullen we de plek met de waarde van de variable naam.

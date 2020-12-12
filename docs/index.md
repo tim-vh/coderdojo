@@ -9,6 +9,7 @@
 
 ## Web
 - Maak een webpagina - [Handleiding](web/maak-een-webpagina/maak-een-webpagina.md)
+- Maak een digitale kaar - [Handleiding](web/maak-een-kaart/maak-een-kaart.md)
 
 ## Minecraft
 

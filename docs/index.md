@@ -7,6 +7,10 @@
 - Multi level game [Voorbeeld](https://scratch.mit.edu/projects/245151514/)
 - Tekenen [Handleiding](scratch/tekenen/tekenen.md)
 
+## Makecode arcade
+
+- [Platform game tutorial](https://arcade.makecode.com/#tutorial:https://github.com/tim-vh/makecode-arcade-tutorials/docs/platform-game)
+
 ## Web
 - Maak een webpagina - [Handleiding](web/maak-een-webpagina/maak-een-webpagina.md)
 - Maak een klok - [Handleiding](web/maak-een-klok/maak-een-klok.md)
